@@ -28,7 +28,6 @@ RUN apt-get update  -qq && \
       python-setuptools \
       python-wheel && \
     apt-clean && \
-    pip install --upgrade pip && \
     pip install --upgrade \
       ansible \
       cryptography
@@ -40,6 +39,7 @@ COPY --from=ansible /usr/local /usr/local
 RUN apt-get update  -qq && \
     apt-get upgrade -qq -y && \
     apt-get install -qq -y \
+      openssh-client \
       python \
       sudo \
       systemd && \
