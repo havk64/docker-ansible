@@ -41,6 +41,9 @@ RUN apt-get update  -qq && \
     apt-get install -qq -y \
       openssh-client \
       python \
+      ruby \
+      ruby-dev \
+      rubygems \
       sudo \
       systemd && \
     apt-clean
