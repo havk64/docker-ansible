@@ -24,6 +24,7 @@ RUN apt-get update  -qq && \
       libffi-dev \
       libssl-dev \
       python-dev \
+      python-netaddr \
       python-pip \
       python-setuptools \
       python-wheel && \
