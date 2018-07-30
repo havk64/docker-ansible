@@ -21,7 +21,6 @@ RUN apt-get update  -qq && \
     apt-get upgrade -qq -y && \
     apt-get install -qq -y \
       build-essential \
-      iproute2 \
       libffi-dev \
       libssl-dev \
       python-dev \
@@ -40,6 +39,7 @@ COPY --from=ansible /usr/local /usr/local
 RUN apt-get update  -qq && \
     apt-get upgrade -qq -y && \
     apt-get install -qq -y \
+      iproute2 \
       openssh-client \
       python \
       ruby \
