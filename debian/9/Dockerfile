@@ -24,7 +24,6 @@ RUN apt-get update  -qq && \
       libffi-dev \
       libssl-dev \
       python-dev \
-      python-netaddr \
       python-pip \
       python-setuptools \
       python-wheel && \
@@ -43,6 +42,7 @@ RUN apt-get update  -qq && \
       iproute2 \
       openssh-client \
       python \
+      python-netaddr \
       ruby \
       ruby-dev \
       rubygems \
