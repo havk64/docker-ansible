@@ -1,4 +1,4 @@
-# Copyright (c) 2018 Vente-Privée, Richar Delaplace
+# Copyright (c) 2018 Vente-Privée, Richard Delaplace
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,9 +25,7 @@ RUN \
   yum install -q -y \
     centos-release-scl \
     scl-utils-build && \
-  yum groupinstall -q -y 'Development Tools'
-
-RUN \
+  yum groupinstall -q -y 'Development Tools' && \
   yum install -q -y \
     iproute \
     libffi-devel \
