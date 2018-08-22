@@ -48,4 +48,24 @@ build-debian-9:
     DOCKER_DRIVER: overlay
   script:
     - docker build --rm debian/9
+
+build-centos-6:
+  stage: docker
+  image: docker:latest
+  services:
+    - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay
+  script:
+    - docker build --rm debian/6
+
+build-centos-7:
+  stage: docker
+  image: docker:latest
+  services:
+    - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay
+  script:
+    - docker build --rm debian/7
 # EOF

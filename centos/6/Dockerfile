@@ -1,4 +1,4 @@
-# Copyright (c) 2018 Vente-Privée, Richard Delaplace
+# Copyright (c) 2018 Vente-Privée, Richar Delaplace
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,30 +25,27 @@ RUN \
   yum install -q -y \
     centos-release-scl \
     scl-utils-build && \
-  yum groupinstall -q -y 'Development Tools' && \
+  yum groupinstall -q -y 'Development Tools'
+
+RUN \
   yum install -q -y \
+    ansible \
     iproute \
     libffi-devel \
     openssl-devel \
-    rh-python36 \
-    rh-python36-python-devel \
-    rh-python36-python-pip \
-    rh-python36-python-setuptools \
+    python \
+    python-crypto \
+    python-devel \
+    python-netaddr \
+    python-pip \
+    python-setuptools \
     rh-ruby24 \
     rh-ruby24-ruby-devel \
     rh-ruby24-rubygems \
     sudo
 
-COPY rh-ruby24.sh /etc/profile.d/rh-ruby24.sh
-
-COPY rh-python36.sh /etc/profile.d/rh-python36.sh
-
-RUN \
-  /etc/profile.d/rh-ruby24.sh && \
-  /etc/profile.d/rh-python36.sh && \
-  /opt/rh/rh-python36/root/usr/bin/pip install --upgrade \
-    ansible \
-    cryptography \
-    netaddr
-
 VOLUME [ "/sys/fs/cgroup" ]
+
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
