@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM vpgrp/centos:6
+FROM vpgrp/centos:7
 
 RUN \
   yum update -q -y && \
@@ -42,7 +42,22 @@ RUN \
     rh-ruby24 \
     rh-ruby24-ruby-devel \
     rh-ruby24-rubygems \
-    sudo
+    sudo && \
+  yum clean all
+
+COPY \
+  rh-ruby24.sh /etc/profile.d/rh-ruby24.sh
+
+RUN \
+  source /opt/rh/rh-ruby24/enable && \
+  export X_SCLS="`scl enable rh-ruby24 'echo $X_SCLS'`" && \
+  export PATH=$PATH:/opt/rh/rh-ruby24/root/usr/local/bin && \
+  gem install \
+    -q --no-rdoc --no-ri --no-format-executable --no-user-install \
+    busser rake rubocop yaml-lint bundler rspec serverspec && \
+  gem clean && \
+  ln -s /opt/rh/rh-ruby24/root/usr/lib64/libruby.so.2.4.3 \
+    /usr/lib64/libruby.so.2.4
 
 VOLUME [ "/sys/fs/cgroup" ]
 
