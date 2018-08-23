@@ -19,8 +19,6 @@ RUN \
   yum install -q -y \
     yum-utils \
     wget && \
-  yum install -q -y \
-    http://mir01.syntis.net/epel/6/x86_64/epel-release-6-8.noarch.rpm && \
   yum-config-manager --enable epel-testing && \
   yum install -q -y \
     centos-release-scl \
