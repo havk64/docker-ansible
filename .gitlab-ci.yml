@@ -49,6 +49,16 @@ build-debian-9:
   script:
     - docker build --rm debian/9
 
+build-ubuntu-1604:
+  stage: docker
+  image: docker:latest
+  services:
+    - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay
+  script:
+    - docker build --rm ubuntu/16.04
+
 build-centos-6:
   stage: docker
   image: docker:latest
