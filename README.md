@@ -28,7 +28,7 @@ Docker images of Ansible.
 
 Supported tags and respective Dockerfile links.
 
-- debian-9, latest ([debian/9/Dockerfile](debian/9/Dockerfile))
+- debian-9, latest ([debian/9/Dockerfile](debian/9/Dockerfile)), ubuntu-1604 ([ubuntu/16.04/Dockerfile](ubuntu/16.04/Dockerfile))
 
 ## Usage
 
